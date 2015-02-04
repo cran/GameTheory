@@ -1,0 +1,16 @@
+citHeader("To cite GameTheory in publications use:")
+
+
+citEntry(
+ entry="Article",
+ title= "Enjoying cooperative games: The R package GameTheory",
+ journal="Working Paper No. 06; CREIP; Spain",
+ year="March 2015",
+ author = personList(as.person("S. Cano-Berlanga"),
+                             as.person("J. M. Gimenez-Gomez"), as.person("C. Vilella")),
+ textVersion="Cano-Berlanga S. and Gimenez-Gomez J. M. and Vilella C. (2015). Working Paper No. 06; CREIP; Spain, March 2015 .")
+
+
+
+citFooter("We have invested a lot of time and effort in creating GameTheory,",
+          "please cite it when using it for data analysis.")

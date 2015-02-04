@@ -1,0 +1,8 @@
+exportPattern("^[^\\.]")
+import(lpSolveAPI)
+import(ineq)
+#import(kappalab)
+import(combinat)
+import(gtools)
+importFrom("kappalab", Shapley.value)
+importFrom("kappalab", set.func)
