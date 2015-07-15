@@ -13,7 +13,7 @@ ShapleyValue(x, Names = NULL)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-     Coalition values
+     object of class Game
 }
   \item{Names}{
      Labels of the agents
@@ -36,8 +36,17 @@ Sebastian Cano-Berlanga <cano.berlanga@gmail.com>
 
 \examples{
 
+
+
+# Begin defining the game
+
 COALITIONS <- c(46125,17437.5,5812.5,69187.5,53812.5,30750,90000)
+LEMAIRE<-DefineGame(3,COALITIONS)
+
+# End defining the game
+
 NAMES <- c("Investor 1","Investor 2","Investor 3")
-LEMAIRESHAPLEY <- ShapleyValue(COALITIONS,NAMES)
-LEMAIRESHAPLEY
+LEMAIRESHAPLEY <- ShapleyValue(LEMAIRE,NAMES)
+summary(LEMAIRESHAPLEY)
+
 }

@@ -1,22 +1,21 @@
-\name{PlotAll}
-\alias{PlotAll}
+\name{plot.ClaimsRules}
+\alias{plot.ClaimsRules}
 
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
   Plot all conficting claims rules
 }
 \description{
-   A concise (1-5 lines) description of what the function does. 
+  Plot results of every rule for a given player. 
 }
 \usage{
-PlotAll(x, y = 1)
+\method{plot}{ClaimsRules}(x, y, ...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
-  \item{x}{
-     Output of \code{AllRules} function}
- \item{y}{
-     Agent}
+  \item{x}{Object of class ClaimsRules}
+ \item{y}{Agent}
+ \item{...}{Other graphical parameters}
 
 
 }
@@ -33,9 +32,9 @@ Sebastian Cano-Berlanga <cano.berlanga@gmail.com>
 CLAIMS <- c(158,299,927,2196,4348,6256,13952)
 COUNTRIES <- c("Germany","Netherlands","Belgium","Ireland","UK","Spain","France")
 INARRA <- AllRules(13500,CLAIMS,COUNTRIES)
-INARRA
+summary(INARRA)
 
-PlotAll(INARRA,5) ## Display allocations for UK
+plot(INARRA,5) ## Display allocations for UK
 LorenzRules(INARRA) ## Inequality graph
 }
 

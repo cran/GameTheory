@@ -1,5 +1,4 @@
-Talmud <-
-function(E,C,Names=NULL){
+Talmud <-function(E,C,Names=NULL){
 
 R<-NULL
 	if (E <= 0.5*sum(C)){ R <- CEA(E,C/2)[[1]]}
@@ -10,5 +9,8 @@ R<-as.matrix(R)
 colnames(R)<-"Talmud"
 rownames(R)<-Names
 
-return(list(Results=R,Claims=C,Method="Talmud Rule"))	
+Output<-list(Results=R,Claims=C,Method="Proportional Rule",Short="T",E=E,Names=Names)
+class(Output)<-"ClaimsRule"
+return(Output) 
+	
 }

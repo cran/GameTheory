@@ -1,6 +1,6 @@
-PlotAll<-
-function(x,y=1){
-	
+plot.ClaimsRules<-
+function(x,y, ...){
+#assignInNamespace("plot.ClaimsRules", plot.ClaimsRules, ns = asNamespace("stats"))
 nam<-rownames(x)
 N<-paste("Allocations for ",nam[y])
 	barplot(x[y,],

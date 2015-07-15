@@ -18,7 +18,11 @@ Power[i,1]<-sum(res2==i)
 
 SHI<-Power/factorial(n)
 TABLE<-rbind(y,y/sum(y),t(SHI))
-rownames(TABLE)<-c("Votes","Votes (%)", "Shapley-Shubick")
+rownames(TABLE)<-c("Votes","Votes (%)", "Shapley-Shubik")
 colnames(TABLE)<-Names
-return(TABLE)
+
+Output<-list(Results=TABLE,Distribution=y,C,Method="PowerIndex",Quota=quota,Names=Names)
+class(Output)<-"ShapleyShubik"
+return(Output)
+
 }

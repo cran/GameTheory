@@ -1,8 +1,8 @@
 Package: GameTheory
 Type: Package
 Title: Cooperative Game Theory
-Version: 1.0
-Date: 2015-02-04
+Version: 2.0
+Date: 2015-07-15
 Author: Sebastian Cano-Berlanga
 Maintainer: Sebastian Cano-Berlanga <cano.berlanga@gmail.com>
 Depends: lpSolveAPI, combinat, gtools, ineq, kappalab
@@ -12,6 +12,6 @@ URL: http://canoberlanga.com
 Suggests: R.rsp
 VignetteBuilder: R.rsp
 Repository: CRAN
-Packaged: 2015-03-07 22:32:12 UTC; sebastian
+Packaged: 2015-08-10 16:55:22 UTC; sebastian
 NeedsCompilation: no
-Date/Publication: 2015-03-08 07:18:06
+Date/Publication: 2015-08-10 19:22:22

@@ -1,19 +1,14 @@
-\name{Nucleolus}
-\alias{Nucleolus}
-%\alias{names}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\name{NucleolusCapita}
+\alias{NucleolusCapita}
+
 \title{
-  Nucleolus solution 
+Per Capita Nucleolus
 }
 \description{
-This function computes the nucleolus solution of a game with a maximum of 4 agents. 
+This function computes the per capita nucleolus solution of a gains game with a maximum of 4 agents. 
 }
-
-
-%%%%%%%%
-
 \usage{
-Nucleolus(x, type = "Gains")
+NucleolusCapita(x, type = "Gains")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,17 +18,10 @@ Object of class Game
   \item{type}{
 Specify if the game refers to Gains or Cost
 }
-
-
-
-%%%%%%
-
-
-
-
 }
 \details{
-  The nucleolus looks for an individually rational distribution of the worth of the grand coalition in which the maximum dissatisfaction is minimized. The nucleolus selects the element in the core, if this is nonempty, that lexicographically minimizes the vector of non-increasing ordered excesses of coalitions. In order to compute this solution we consider a sequence of linear programs, which looks for an imputation that minimizes the maximum excess among all coalitions.
+  
+The per capita nucleolus represents a measure of dissatisfaction per capita of such a coalition. It is also  an individually rational distribution of the worth of the grand coalition in which the maximum per capita dissatisfaction is minimized. Formally, is defined like the nucleolus but taking into the account the per capita excess.
 }
 
 \value{
@@ -57,7 +45,7 @@ Sebastian Cano-Berlanga <cano.berlanga@gmail.com>
 
 \examples{
 	
-## EXAMPLE FROM LEMAIRE (1991)
+## DATA FROM LEMAIRE (1991)
 	
 # Begin defining the game
 
@@ -66,12 +54,9 @@ LEMAIRE<-DefineGame(3,COALITIONS)
 
 # End defining the game
 
-LEMAIRENUCLEOLUS<-Nucleolus(LEMAIRE)
-summary(LEMAIRENUCLEOLUS) # Gains Game, the excess should be negative
-
+LEMAIRENUCLEOLUS<-NucleolusCapita(LEMAIRE)
+summary(LEMAIRENUCLEOLUS) 
 
 }
-
-
 
 

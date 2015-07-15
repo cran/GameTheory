@@ -1,6 +1,11 @@
 ShapleyValue <-
 function(x,Names=NULL){
-	coalitions<-set.func(c(0,x))
+	
+	#####
+	as.matrix(x$Lex)->z
+	as.vector(z)->z
+	#####
+	coalitions<-set.func(c(0,z))
 	SV<-Shapley.value(coalitions)
 	SV<-as.matrix(SV)
 	rownames(SV)<-Names
@@ -12,5 +17,7 @@ function(x,Names=NULL){
 	    "#E38030"),axes=TRUE,family="Times",main="Shapley Value",beside=TRUE,names.arg=Names,space=0.25)
     colnames(SV)<-"Shapley Value"
     axis(2,family="Times")
-	return(SV)
+    Output<-list(SV=SV)
+    class(Output)<-"ShapleyValue"
+	return(Output)
 }

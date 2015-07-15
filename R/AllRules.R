@@ -25,7 +25,7 @@ function(E,C,Names=NULL,pct=0,r=2){
 	colnames(Res)<-c("Claim","Proportional","CEA","CEL","Talmud","RA")
 	
 	rownames(Res)<-c(Names,"Gini Index")
-	
+	class(Res)<-"ClaimsRules"
      
 	return(Res)
 }

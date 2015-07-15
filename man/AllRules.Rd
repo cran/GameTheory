@@ -41,9 +41,10 @@ In order to calculate the rule properly, input the claims of the agents in ascen
 CLAIMS <- c(158,299,927,2196,4348,6256,13952)
 COUNTRIES <- c("Germany","Netherlands","Belgium","Ireland","UK","Spain","France")
 INARRA <- AllRules(13500,CLAIMS,COUNTRIES)
-INARRA
+summary(INARRA)
 
-PlotAll(INARRA,5) ## Display allocations for UK
+plot(INARRA,5) ## Display allocations for UK
 LorenzRules(INARRA) ## Inequality graph
+
 }
 

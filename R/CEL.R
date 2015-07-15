@@ -21,6 +21,8 @@ for (i in 2:n){
  R<-as.matrix(R)
  rownames(R)<- Names
  colnames(R)<-"CEL"
- return(list(Results=R,Claims=C,Method="Constrained Equal Losses"))   
+ Output<-list(Results=R,Claims=C,Method="Constrained Equal Losses",Short="CEL",E=E,Names=Names)
+ class(Output)<-"ClaimsRule"
+ return(Output) 
  
 }

@@ -17,6 +17,8 @@ for (i in 1:elementos){
 	R<-as.matrix(res)
  	rownames(R)<-Names
  	colnames(R)<-"RA"
- 	return(list(Results=R,Claims=C,Method="Random Arrival"))  
+ 	Output<-list(Results=R,Claims=C,Method="Random Arrival",Short="RA",E=E,Names=Names)
+    class(Output)<-"ClaimsRule"
+    return(Output)  
 	
 }

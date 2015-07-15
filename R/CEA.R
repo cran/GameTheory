@@ -17,5 +17,7 @@ for (i in 2:n){
  R<-as.matrix(R)
  rownames(R)<-Names
  colnames(R)<-"CEA"
- return(list(Results=R,Claims=C,Method="Constrained Equal Awards"))   
+ Output<-list(Results=R,Claims=C,Method="Constrained Equal Awards",Short="CEA",E=E,Names=Names)
+ class(Output)<-"ClaimsRule"
+ return(Output)   
 }
