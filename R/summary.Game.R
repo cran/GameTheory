@@ -9,6 +9,9 @@ function(object, ...) {
    cat("\n")
    cat("Coaliton Value(s)","\n")
    cat("\n")
-   print(x$Lex)
+   L<-as.matrix(x$Lex)
+   rownames(L)<-rownames(x$Lmat);
+   colnames(L)<-"Value"
+   print(L)
    cat("\n")
-}
+   }

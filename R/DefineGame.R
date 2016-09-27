@@ -1,63 +1,71 @@
-DefineGame <-
-function(n,V) {
-
-	# Construyo matriz binaria
-	
+DefineGame <- function(n, V) {
 	vec <- c(0, 1)
 	lst <- lapply(numeric(n), function(x) vec)
 	Amat <- as.matrix(expand.grid(lst))[-1, ]
-    BinMat <- Amat
+	Amat <- Amat[order(rowSums(Amat)), ]
+	Lmat <- Amat
+
+	#####
+	
+	Orden <- NULL
+	for (i in 1:n) {
+		tmp <- t(combn(n, i))
+		tmp2 <- as.list(as.data.frame((tmp)))
+		tmp3 <- do.call(paste, tmp2)
+		Orden <- c(Orden, tmp3)
+	}
+
+
+	OrdenL <- Orden
+	Orden <- gsub(" ", "", Orden)
+
+	#####
 	C <- ncol(Amat)
 	F <- nrow(Amat)
 
-	# recodifico matriz
-	
+
 	for (i in seq(1, F)) {
 		for (j in seq(1, C)) {
 			if (Amat[i, j] == 1) 
 				Amat[i, j] <- j
-
 		}
 	}
 
-	###################
+	for (i in seq(1, F)) {
+		for (j in seq(1, C)) {
+			if (Amat[i, j] == 0) 
+				Amat[i, j] <- "z"
+		}
+	}
+
 	matrix.text <- function(mtext, sep = " ", collapse = NULL) {
 		if (is.null(collapse)) 
 			apply(mtext, 1, paste, collapse = sep)
-		else paste(apply(mtext, 1, paste, collapse = sep), 
-			collapse = collapse)
+		else paste(apply(mtext, 1, paste, collapse = sep), collapse = collapse)
 	}
-	Hmat <- matrix.text(Amat)
 
-	# quito los 0's
+	Amat <- matrix.text(Amat)
+	Amat <- gsub("z", "", Amat)
+	Amat <- gsub(" ", "", Amat)
+	Lab <- Amat
+	rownames(Lmat) <- Lab
+	Lmat <- Lmat[Orden, ]
+	Cmat <- Lmat
+	####
+	for (i in 2:n) {
+		for (j in 1:(2^n - 1)) {
+			if (Cmat[j, i] != 0) {
+				Cmat[j, i] <- i
+			}
+		}
+
+	}
+
+	####
 	
-	Hmat <- Hmat <- gsub(0, "", Hmat)
-
-	# quito los espacios
-	
-	Hmat <- Hmat <- gsub(" ", "", Hmat)
-
-	# convierto a numerico y mantengo la matriz
-	
-	Bmat <- as.matrix(as.numeric(Hmat))
-
-	# aplico orden lexicografico
-	Lmat <- as.matrix(sort(Bmat))
-    
-    CoB<-data.frame(rep(0,2^n-1),row.names=Bmat)
-    colnames(CoB)=c("v(i)")
-    
-    CoL<-data.frame(V,row.names=Lmat)
-    colnames(CoL)=c("v(i)")
-    
-    Nam<-rownames(CoL)
-    d<-length(Nam)
-    for (i in seq(1,d)){
-    	CoB[Nam[i],]<-CoL[Nam[i],]
-    	
-    }
-    
-    Output<-list(Binary=CoB,Lex=CoL,Ag=n,BinMat=BinMat)
-    class(Output)<-"Game"
+	Output <- list(Lex = V, Ag = n, Lmat = Lmat, Cmat = Cmat)
+	class(Output) <- "Game"
 	return(Output)
+
 }
+

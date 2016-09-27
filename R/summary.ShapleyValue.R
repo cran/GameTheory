@@ -5,5 +5,5 @@ function(object, ...) {
    cat("\n")
    cat("Shapley Value for the given game","\n")
    cat("\n")
-   print(as.data.frame(x$SV))
+   print(x$SV)
 }
