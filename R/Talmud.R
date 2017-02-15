@@ -9,7 +9,7 @@ R<-as.matrix(R)
 colnames(R)<-"Talmud"
 rownames(R)<-Names
 
-Output<-list(Results=R,Claims=C,Method="Proportional Rule",Short="T",E=E,Names=Names)
+Output<-list(Results=R,Claims=C,Method="Talmud Rule",Short="T",E=E,Names=Names)
 class(Output)<-"ClaimsRule"
 return(Output) 
 	

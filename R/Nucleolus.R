@@ -1,4 +1,4 @@
-Nucleolus <- function(x, type = "Gains") {
+Nucleolus<- function(x, type = "Gains") {
 
 	## Numero de Agentes
 	
@@ -33,7 +33,8 @@ Nucleolus <- function(x, type = "Gains") {
 		Lim <- c(Lim, 0)
 
 		# set.bounds(lprec, lower = c(rep(0, n), 0), upper = c(rep(Inf, n), Inf))
-		set.bounds(lprec, lower = c(V[1:n], 0), upper = c(rep(Inf, n), Inf))
+		 # set.bounds(lprec, lower = c(V[1:n], 0), upper = c(Inf, n), Inf)
+		# set.bounds(lprec, lower = c(V[1:n], 0), upper = c(rep(V[N], n), Inf))
 		name.lp(lprec, "Nucleolus of a gains game ")
 		lp.control(lprec, sense = "min", verbose = "normal")
 		#, simplextype = c("dual", "primal"))

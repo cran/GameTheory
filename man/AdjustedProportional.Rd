@@ -24,6 +24,14 @@ AdjustedProportional(E, C, Names = NULL)
 }
 
 
+\references{
+	
+
+
+	Curiel, I. J., Maschler, M., & Tijs, S. H. (1987). "Bankruptcy games." \emph{Zeitschrift fur Operations Research}, \bold{31}(5), A143-A159.
+}
+
+
 \author{
 Sebastian Cano-Berlanga <cano.berlanga@gmail.com>
 }
