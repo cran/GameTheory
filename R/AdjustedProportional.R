@@ -22,7 +22,6 @@ function(E,C,Names=NULL){
 	
 	NC <- Proportional(NE, Nc2)$Results
 
-	### End Curiel et al. (1987) 
 	
 	R <- NC + Nc
 	Output <- list(Results = R, Claims = C, Method = "Adjusted Proportional Rule", Short = "AP", E = E, Names = Names)
